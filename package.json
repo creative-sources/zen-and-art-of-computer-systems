@@ -1,0 +1,20 @@
+{
+  "name": "zen-and-art-of-computer-systems",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/creative-sources/zen-and-art-of-computer-systems.git",
+  "author": "Blas <macizomedia@gmail.com>",
+  "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "lint": "npm run lint.eslint && npm run lint.prettier && npm run lint.types",
+    "lint.eslint": "eslint . --ext ts",
+    "lint.prettier": "prettier -c src/**/*.ts",
+    "lint.types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
+}
