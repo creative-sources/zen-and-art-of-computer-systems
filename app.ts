@@ -8,8 +8,9 @@ enum Color {
   Blue = 'blue',
 }
 
-interface IProp {
-  name: string;
+interface IProp<T> {
+  name: string | T;
+  getName: () => void;
   greet: string;
   time: number;
   language: 'hola' | 'hello' | 'bonjour';
@@ -17,14 +18,22 @@ interface IProp {
   word: unknown;
 }
 
-type Mprop = IProp[];
+type Mprop = Partial<IProp<boolean>>[];
 
-function greeting([{greet, name, time, word}]: Mprop) {
+function getName<T>(name: T): T{
+  return name;
+}
+
+getName<number>(42);
+
+function greeting([{greet, name, time, word}]:Mprop) {
   const ramdon = Math.random() * 100 + 1;
   const comebacks: unknown[] = ['your great', 'you are a dick', 42];
   comebacks.push(word);
   return `${greet} ${name} at ${time} ${comebacks[ramdon]}`;
 }
+
+type result = ReturnType<typeof getName>;
 
 const message = greeting([
   {name: 'name', greet: 'hello', time: 1, language: 'hola', color: Color.Red, word: ["you","are","a",2]},
