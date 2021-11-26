@@ -15,6 +15,20 @@
     "lint.types": "tsc --noEmit"
   },
   "devDependencies": {
-    "parcel": "^2.0.1"
+    "@parcel/transformer-sass": "^2.0.1",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^27.0.3",
+    "@types/jquery": "^3.5.9",
+    "parcel": "^2.0.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@fontsource/actor": "^4.5.0",
+    "@fontsource/barrio": "^4.5.0",
+    "axios": "^0.24.0",
+    "jest": "^27.3.1",
+    "rxjs": "^7.4.0",
+    "sass": "^1.43.5"
   }
 }

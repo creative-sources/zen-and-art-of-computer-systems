@@ -1,0 +1,48 @@
+
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #fff;
+}
+
+h1 { font-family: "Barrio"; }
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+}
+
+main {
+    padding: 1rem;
+    background-color: #333;
+}
+
+section {
+    padding: 1rem;
+    max-width: fit-content;
+    background-color: #272728;
+    border: #fff solid 1px;
+    margin: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+li /* or LI:hover */ {
+  display: inline-block;
+  margin-right: 10px;
+  list-style: none;
+}
+.content {
+  padding: 0;
+  margin: 0;
+}

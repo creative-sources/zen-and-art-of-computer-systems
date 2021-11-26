@@ -1,5 +1,3 @@
-console.log('Hello World');
-
 /* Types in function */
 
 enum Color {
