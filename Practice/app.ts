@@ -1,5 +1,7 @@
 import {interval} from 'rxjs';
+import '@fontsource/barrio';
 import './custom.scss';
+import './script.ts';
 
 const $ = document;
 const startTime = Date.now();
@@ -16,4 +18,3 @@ function* fibonacci() {
     [a, b] = [b, a + b];
   }
 }
-
