@@ -1,36 +1,59 @@
 {
   "name": "zen-and-art-of-computer-systems",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/creative-sources/zen-and-art-of-computer-systems.git",
   "author": "Blas <macizomedia@gmail.com>",
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
+    "debug": "parcel src/index.pug --open 'google chrome'",
     "dev": "parcel src/index.pug",
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build src/index.pug",
+    "postbuild": "workbox generateSW",
+    "clear": "rm -rf dist",
     "lint": "npm run lint.eslint && npm run lint.prettier && npm run lint.types",
     "lint.eslint": "eslint . --ext ts",
     "lint.prettier": "prettier -c src/**/*.ts",
     "lint.types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.0.1",
     "@parcel/transformer-pug": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
+    "@parcel/transformer-webmanifest": "^2.0.1",
+    "@swc/helpers": "^0.2.14",
     "@types/axios": "^0.14.0",
     "@types/jest": "^27.0.3",
     "@types/jquery": "^3.5.9",
     "parcel": "^2.0.1",
+    "parcel-plugin-sw-cache": "^0.3.1",
     "ts-jest": "^27.0.7",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "workbox-cli": "^6.4.1"
   },
   "dependencies": {
+    "@fontsource/abril-fatface": "^4.5.0",
     "@fontsource/actor": "^4.5.0",
     "@fontsource/barrio": "^4.5.0",
+    "@fontsource/fira-code": "^4.5.2",
+    "@parcel/service-worker": "^2.0.1",
+    "@swc/helpers": "^0.2.14",
     "axios": "^0.24.0",
     "jest": "^27.3.1",
+    "regenerator-runtime": "^0.13.9",
     "rxjs": "^7.4.0",
-    "sass": "^1.43.5"
+    "sass": "^1.43.5",
+    "workbox-cacheable-response": "^6.4.1",
+    "workbox-core": "^6.4.1",
+    "workbox-expiration": "^6.4.1",
+    "workbox-routing": "^6.4.1",
+    "workbox-strategies": "^6.4.1"
+  },
+  "cache": {
+    "disablePlugin": false,
+    "inDev": true,
+    "strategy": "inject",
+    "clearDist": true
   }
 }

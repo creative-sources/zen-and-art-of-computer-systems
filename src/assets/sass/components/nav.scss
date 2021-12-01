@@ -1,0 +1,17 @@
+nav {
+  ul {
+    display: flex;
+    flex-direction: calc(var(--flex-direction) - 1);
+    justify-content: center;
+    li {
+      margin-right: 1rem;
+      flex-basis: 10em;
+      a {
+        color: rgb(84, 40, 146);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

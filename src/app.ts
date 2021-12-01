@@ -1,6 +1,4 @@
 import {interval} from 'rxjs';
-import '@fontsource/barrio';
-import './custom.scss';
 import './script.ts';
 
 const $ = document;

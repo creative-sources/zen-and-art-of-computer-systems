@@ -5,7 +5,6 @@ import {
   NEVER,
   skipUntil,
   scan,
-  Subscription,
   takeUntil,
   mapTo,
   startWith,
@@ -23,7 +22,7 @@ import {
   timer,
 } from 'rxjs';
 import {fromFetch} from 'rxjs/fetch';
-import {
+/* import {
   setCount,
   startButton,
   stopButton,
@@ -36,7 +35,7 @@ import {
   clearButton,
   clearResult,
 } from './utils';
-
+ */
 /* 
 const start$ = fromEvent(startButton, 'click');
 const stop$ = fromEvent(stopButton, 'click');
@@ -50,7 +49,7 @@ const counter$ = interval(1000).pipe(
 counter$.subscribe(setCount);
 
  */
-
+/* 
 const start$ = fromEvent(startButton, 'click').pipe(mapTo(true));
 const stop$ = fromEvent(stopButton, 'click').pipe(mapTo(false));
 
@@ -65,7 +64,7 @@ isRunning$.subscribe((isRunning) => {
     counter$.subscribe(setCount);
   }
 });
-
+ */
 /* Fetch Api and Pluck Item */
 /* 
 const nasa = 'https://api.nasa.gov/planetary/apod?api_key=NLs7EzkbvMJbHIUlycRaJmYDmnwrk0ZDmGWRKQAp';
@@ -78,10 +77,10 @@ const description$ = from(nasa$).pipe(pluck('explanation'));
 
 title$.subscribe(setTitle);
 description$.subscribe(setDescription);
-image$.subscribe(setImage); */
-
+image$.subscribe(setImage); 
+ */
 /* Two Way to handle promise like Fetch */
-
+/* 
 const coinRates = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
 const coin$ = fromFetch(coinRates).pipe(map((res) => res.json()));
@@ -96,9 +95,9 @@ const bpi$ = from(coin$).pipe(
 );
 
 bpi$.subscribe(setBpi);
-
+ */
 /* Using Merged Map with Retry */
-
+/* 
 const fetchData = () => {
   return fromFetch(coinRates).pipe(
     mergeMap((res) => {
@@ -116,9 +115,9 @@ const fetchData = () => {
     })
   );
 };
-
+ */
 /* const fetch$ = fromEvent(fetchButton, 'click').pipe(exhaustMap(fetchData)); */
-
+/* 
 const fetch$ = fromEvent(fetchButton, 'click').pipe(mapTo(true));
 const clear$ = fromEvent(clearButton, 'click').pipe(mapTo(false));
 
@@ -141,6 +140,20 @@ fetchStream$.subscribe(({bpi, error}) => {
   }
   setResult({bpi});
 });
-
+ */
 /* Search with Rxjs */
 
+let bipEvent: any = null;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  bipEvent = event;
+});
+
+document.querySelector('#btnInstall').addEventListener('click', (e) => {
+  if (bipEvent) {
+    bipEvent.prompt();
+  } else {
+    alert('your shit aint working!');
+  }
+});

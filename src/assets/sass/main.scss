@@ -1,0 +1,29 @@
+@import 'abstracts/variables';
+//@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+//@import 'vendors/bootstrap';
+//@import 'vendors/jquery-ui';
+@import 'core/typography';
+/* 
+@import 'base/reset';
+
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
+*/
+@import 'layout/default';
+@import 'components/nav';
+/* 
+@import 'components/carousel';
+@import 'components/slider';
+/* 
+@import 'pages/about';
+
+@import 'pages/contact';
+@import 'themes/theme';
+@import 'themes/admin';  */
+@import 'pages/home';
+

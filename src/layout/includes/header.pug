@@ -1,0 +1,44 @@
+header
+    .header.header-fixed.unselectable.header-animated.header-dark
+        .header-brand
+            .nav-item.no-hover
+                a
+                    h6.title #{title}
+            #header-btn.nav-item.nav-btn
+                span
+                span
+                span
+        #header-menu.header-nav
+            .nav-right
+                .nav-item.text-center
+                    a(href='#')
+                        span.icon
+                            i.fab.fa-wrapper.fa-github(aria-hidden='true')
+                .nav-item.text-center
+                    a(href='#')
+                        span.icon
+                            i.fab.fa-wrapper.fa-slack(aria-hidden='true')
+                .nav-item.text-center
+                    a(href='#')
+                        span.icon
+                            i.fab.fa-wrapper.fa-twitter(aria-hidden='true')
+                #dropdown.nav-item.has-sub.toggle-hover
+                    a.nav-dropdown-link Chapters
+                        ul.dropdown-menu.dropdown-animated(role='menu')
+                            each val in chapters
+                                li(role='menu-item')
+                                    a.menu-item(href=val.link) #{val.title}
+                    script(src='https://use.fontawesome.com/a696b91557.js')
+                    script.
+                        // Get all the nav-btns in the page
+                        let navBtns = document.querySelectorAll('.nav-btn');
+                        // Add an event handler for all nav-btns to enable the dropdown functionality
+                        navBtns.forEach(function (ele) {
+                        ele.addEventListener('click', function() {
+                            // Get the dropdown-menu associated with this nav button (insert the id of your menu)
+                            let dropDownMenu = document.getElementById('dropdown');
+                            // Toggle the nav-btn and the dropdown menu
+                            ele.classList.toggle('active');
+                            dropDownMenu.classList.toggle('dropdown-shown');
+                            });
+                        });

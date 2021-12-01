@@ -1,5 +1,3 @@
-import '@fontsource/barrio';
-import './main.scss';
 /* Types in function */
 
 enum Color {

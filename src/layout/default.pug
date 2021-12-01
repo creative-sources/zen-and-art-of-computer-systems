@@ -1,0 +1,14 @@
+doctype html
+html(lang="")
+  head
+    include includes/head
+  body
+    block content
+      include includes/header
+      .posts
+      include includes/hero
+      script(type="module" src="index.ts")
+      script(type="module" src="sw.js")
+      a(style="display: none" href="./offline.html")
+      block foot
+        include includes/footer

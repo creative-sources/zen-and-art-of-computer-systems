@@ -1,0 +1,38 @@
+@mixin menu-background($color, $menu-gradient: true) {
+    background-color: $color;
+    @if $menu-gradient == true {
+        @include background-image(linear-gradient(rgba(255, 255, 255, .2),
+                              rgba(255, 255, 255, 0)));
+    }
+    @else {
+        background-image: none;
+    }
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin nav-transition {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin horizontal-list {
+  @include reset-list;
+
+  li {
+    display: inline-block;
+    margin: {
+      left: -2px;
+      right: 2em;
+    }
+  }
+}
+
+nav ul {
+  @include horizontal-list;
+}
