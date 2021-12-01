@@ -12,36 +12,59 @@ const loadImage = () =>
 (function Home() {
   let worker: Worker;
   let isOnline = (navigator.onLine ? 'online' : 'offline') as 'online' | 'offline';
+  navigator.serviceWorker.addEventListener(
+    'message',
+    (e) => {
+      console.log(e);
+    },
+    false
+  );
+  self.postMessage({statusUpdateRequest: true});
   document.addEventListener(
     'DOMContentLoaded',
     () => {
       console.log('DOM loaded');
       loadImage();
-      apiCalls();
     },
     false
   );
 
+  function onSWMessage(evt: {ports?: any; data?: any}) {
+    var {data} = evt;
+    if (data.statusUpdateRequest) {
+      console.log('Status update requested from service worker, responding...');
+    }
+    sendStatusUpdate(evt.ports && evt.ports[0]);
+  }
+
+  function sendStatusUpdate(target?: undefined) {
+    sendSWMessage(
+      {
+        statusUpdate: {
+          isOnline: 'online',
+          isLoggedIn: undefined,
+        },
+      },
+      target
+    );
+  }
+
+  function sendSWMessage(
+    msg: {statusUpdate: {isOnline: 'online' | 'offline'; isLoggedIn?: any}},
+    target: {postMessage: (arg0: any) => void}
+  ) {
+    if (target) {
+      target.postMessage(msg);
+    } else if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage(msg);
+    }
+  }
+  /* 
   const apiCalls = async () => {
     const res = await fetch('https://api.github.com/users/macizomedia');
     const data = await res.json();
     console.log(data);
-  };
-
-  async function addToCache(urls: RequestInfo[]) {
-    const cache = await caches.open('/assets/');
-    return cache.addAll(urls);
-  }
-
-  // Call addToCache whenever you'd like. E.g. to add to cache after a page load:
-  window.addEventListener('load', () => {
-    addToCache(['/assets/images', '/assets/sass']);
-  });
-
-  setTimeout(() => {
-    self.postMessage({statusUpdateRequest: true});
-  }, 200);
-
+  }; */
   /* ---------------- The code that Works! ----------------- */
   worker = new Worker(new URL('worker.js', import.meta.url), {type: 'module'});
 

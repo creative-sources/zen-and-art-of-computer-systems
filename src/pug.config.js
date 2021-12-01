@@ -8,6 +8,7 @@ module.exports = {
         title: 'Chapter 1',
         link: '/chapter-1',
         description: 'What is Computation',
+        content: 'chapter_01.md',
         sections: [
           {
             title: 'Counting, is all about counting',
