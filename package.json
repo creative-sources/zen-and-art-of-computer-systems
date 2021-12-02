@@ -41,6 +41,7 @@
     "@swc/helpers": "^0.2.14",
     "axios": "^0.24.0",
     "jest": "^27.3.1",
+    "jsdom": "^16.7.0",
     "jstransformer-markdown-it": "^2.1.0",
     "regenerator-runtime": "^0.13.9",
     "rxjs": "^7.4.0",

@@ -1,6 +1,7 @@
+
 module.exports = {
   locals: {
-    hero: 'zen and art of computer systems',
+    hero: 'zen and art of the computer system',
     title: 'Zen of coding',
     description: 'Fundamentals on Programming',
     chapters: [

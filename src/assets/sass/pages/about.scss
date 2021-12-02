@@ -1,0 +1,34 @@
+.rate-start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+.rate-start .rate-start-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 10px;
+}
+.rate-start .rate-start-full {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+.rate-start .rate-start-empty {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+.rate-start .rate-start-text span:first-child {
+  margin-right: 10px;
+}
+
+.online {
+  display: flex;
+  font-family: 'Fira code', monospace;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+  font-size: 30px;
+}

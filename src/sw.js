@@ -10,13 +10,6 @@ let isLoggedIn = false;
 // an event handler.
 clientsClaim();
 
-main().catch((error) => {
-  console.error(error);
-});
-async function main() {
-  console.log(`Service Worker (v${version}) is initializing...`);
-}
-
 setCacheNameDetails({
   prefix: 'zen-cache',
   suffix: 'v1',
@@ -103,12 +96,12 @@ self.addEventListener('message', function (event) {
   if (event.data.statusUpdateRequest) {
     onMessage(event);
   }
-  console.log('[Service Worker 1] Received message:', event.data);
+  /* console.log('[Service Worker 1] Received message:', event.data); */
 });
 
 function onMessage({data}) {
-  console.log(data);
+  /* console.log(data);
   console.log(
     `Service Worker (v${version}) status update... isOnline:${isOnline}, isLoggedIn:${isLoggedIn}`
-  );
+  ); */
 }
